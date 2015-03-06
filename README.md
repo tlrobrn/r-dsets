@@ -4,8 +4,8 @@ An implementaion of the disjoint sets data structure in Rust.
 
 ## Docs
 
-Run `cargo doc` to generate the documentation in ./target/doc  
-The index page can then be found at ./target/doc/disjoint_sets/index.html
+Run `cargo doc` to generate the documentation in `./target/doc`  
+The index page can then be found at `./target/doc/disjoint_sets/index.html`
 
 ## Testing
 
