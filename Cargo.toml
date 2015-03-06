@@ -1,0 +1,5 @@
+[package]
+
+name = "disjoint_sets"
+version = "0.0.1"
+authors = ["Braintree <code@getbraintree.com>"]
