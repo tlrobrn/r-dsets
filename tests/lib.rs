@@ -25,7 +25,7 @@ fn find_root() {
 }
 
 #[test]
-#[should_fail]
+#[should_panic]
 fn find_root_out_of_bounds() {
     let mut dsets = DisjointSets::new(0);
     dsets.find_root(0).ok();
@@ -42,7 +42,7 @@ fn set_union() {
 }
 
 #[test]
-#[should_fail]
+#[should_panic]
 fn set_union_out_of_bounds() {
     let mut dsets = DisjointSets::new(1);
     dsets.set_union(0, 1);
