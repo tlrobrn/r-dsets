@@ -72,9 +72,9 @@ impl DisjointSets {
     ///     Err(e) => panic!(e),
     /// }
     /// ```
-    pub fn find_root(&mut self, element: usize) -> Result<usize, &'static str> {
+    pub fn find_root(&mut self, element: usize) -> Result<usize, String> {
         if element > self.size() {
-            return Err("Out of bounds");
+            return Err("Out of bounds".to_string());
         }
 
         if self.sets[element] < 0 {
