@@ -21,7 +21,9 @@
 ///     Err(e) => panic!(e),
 /// }
 /// ```
-pub struct DisjointSets { sets: Vec<i64> }
+pub struct DisjointSets {
+    sets: Vec<i64>,
+}
 
 impl DisjointSets {
     /// Create a new DisjointSets object with the given number of sets.
@@ -52,7 +54,9 @@ impl DisjointSets {
     /// assert_eq!(10, dsets.size());
     /// ```
     pub fn add_sets(&mut self, count: usize) {
-        for _ in 0..count { self.sets.push(-1); }
+        for _ in 0..count {
+            self.sets.push(-1);
+        }
     }
 
     /// Find the root of the set containing the given element.
@@ -69,11 +73,15 @@ impl DisjointSets {
     /// }
     /// ```
     pub fn find_root(&mut self, element: usize) -> Result<usize, &'static str> {
-        if element > self.size() { return Err("Out of bounds") }
+        if element > self.size() {
+            return Err("Out of bounds");
+        }
 
-        if self.sets[element] < 0 { return Ok(element) }
+        if self.sets[element] < 0 {
+            return Ok(element);
+        }
 
-        let parent:usize = self.sets[element] as usize;
+        let parent: usize = self.sets[element] as usize;
         self.sets[element] = try!(self.find_root(parent)) as i64;
 
         Ok(self.sets[element] as usize)
@@ -96,17 +104,18 @@ impl DisjointSets {
     pub fn set_union(&mut self, a: usize, b: usize) {
         match (self.find_root(a), self.find_root(b)) {
             (Ok(root_a), Ok(root_b)) => {
-                if root_a == root_b { return }
+                if root_a == root_b {
+                    return;
+                }
 
                 if self.sets[root_a] <= self.sets[root_b] {
                     self.sets[root_a] += self.sets[root_b];
                     self.sets[root_b] = root_a as i64;
-                }
-                else {
+                } else {
                     self.sets[root_b] += self.sets[root_a];
                     self.sets[root_a] = root_b as i64;
                 }
-            },
+            }
             _ => panic!("Unable to get roots in order to merge sets."),
         }
     }
