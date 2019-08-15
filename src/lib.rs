@@ -37,7 +37,9 @@ impl DisjointSets {
     /// assert_eq!(10, dsets.size());
     /// ```
     pub fn new(size: usize) -> DisjointSets {
-        DisjointSets { sets: vec![-1; size] }
+        DisjointSets {
+            sets: vec![-1; size],
+        }
     }
 
     /// Add the given number of sets to this collection.

@@ -14,7 +14,6 @@ fn add_sets() {
     assert_eq!(42, dsets.size());
 }
 
-
 #[test]
 fn find_root() {
     let mut dsets = DisjointSets::new(1);
